@@ -54,7 +54,7 @@ const createCategory = async (req, res) => {
 const getCategoryById = async (req, res) => {
     try {
         const category = await categoryService.getCategoryById(
-            req.params.id
+            req.params.categoryId
         );
 
         if (!category) {
@@ -83,7 +83,7 @@ const updateCategory = async (req,res) => {
     try{
 
         const category = await categoryService.updateCategory(
-            req.params.id,
+            req.params.categoryId,
             req.body
         );
 
