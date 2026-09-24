@@ -41,12 +41,29 @@ const createCategory = async (req, res) => {
         });
 
     } catch (error) {
-        console.error("Create category error:", error);
+    console.error("Create category error:", error);
 
-        return res.status(500).json({
-            message: "Internal server error"
+  
+    if (error.code === 11000) {
+        return res.status(409).json({
+            message: "Category with this slug already exists"
         });
     }
+
+    
+    if (error.name === "ValidationError") {
+        return res.status(400).json({
+            message: "Invalid category data",
+            errors: Object.values(error.errors).map(
+                (err) => err.message
+            )
+        });
+    }
+
+    return res.status(500).json({
+        message: "Internal server error"
+    });
+}
 };
 
 
@@ -71,12 +88,18 @@ const getCategoryById = async (req, res) => {
         });
 
     } catch (error) {
-        console.error("Get category by ID error:", error);
+    console.error("Get Category By ID error:", error);
 
-        return res.status(500).json({
-            message: "Internal server error"
+    if (error.name === "CastError") {
+        return res.status(400).json({
+            message: "Invalid Category ID"
         });
     }
+
+    return res.status(500).json({
+        message: "Internal server error"
+    });
+}
 };
 
 const updateCategory = async (req,res) => {
@@ -138,7 +161,7 @@ const deleteCategory = async(req,res) => {
             });
         }
         return res.status(200).json({
-            message:"Category Data deleted successfully",
+            message:"Category  deleted successfully",
             data:{
                 category
             }
@@ -146,18 +169,19 @@ const deleteCategory = async(req,res) => {
 
             
 
-    } catch(error){
-        console.error("Delete Category error:",error);
+    } catch (error) {
+    console.error("Delete Category error:", error);
 
-        if(error.name === "CasteError"){
-            return res.status(400).json({
-                message:"Invalid Category Id"
-            })
-        }
-        return res.status(500).json({
-            message:"Internal Server error"
+    if (error.name === "CastError") {
+        return res.status(400).json({
+            message: "Invalid Category ID"
         });
     }
+
+    return res.status(500).json({
+        message: "Internal server error"
+    });
+  }
 }
 
     
