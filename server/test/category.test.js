@@ -31,7 +31,7 @@ describe("Category API", () => {
             name: "",
             slug: `invalid-test-${Date.now()}`,
             image: "https://example.com/images/test.jpg"
-        });
+        });   
 
     expect(response.statusCode).toBe(400);
 

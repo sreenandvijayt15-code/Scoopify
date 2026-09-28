@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const categoryRoutes = require("./routes/categoryRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
 
@@ -19,4 +20,5 @@ app.get("/", (req, res) => {
 
 // Category routes
 app.use("/api/categories", categoryRoutes);
+app.use("/admin", adminRoutes);
 module.exports = app;
