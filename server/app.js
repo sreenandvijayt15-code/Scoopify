@@ -4,6 +4,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const categoryRoutes = require("./routes/categoryRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 
@@ -18,7 +19,8 @@ app.get("/", (req, res) => {
     res.send("Scoopify server is running...");
 });
 
-// Category routes
+
 app.use("/api/categories", categoryRoutes);
 app.use("/admin", adminRoutes);
+app.use("/admin/users", userRoutes);
 module.exports = app;
