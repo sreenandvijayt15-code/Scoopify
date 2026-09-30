@@ -1,6 +1,50 @@
 const User = require("../models/userModel");
 const userService = require("../services/userService");
 
+
+const registerUser = async (req, res) => {
+    try {
+        const { name, email, password, phone } = req.body;
+
+        if (!name || !email || !password) {
+            return res.status(400).json({
+                message: "Name, email and password are required"
+            });
+        }
+
+        const user = await userService.registerUser({
+            name,
+            email,
+            password,
+            phone
+        });
+
+        if (!user) {
+            return res.status(409).json({
+                message: "User with this email already exists"
+            });
+        }
+
+        return res.status(201).json({
+            message: "User registered successfully",
+            data: {
+                id: user._id,
+                name: user.name,
+                email: user.email,
+                phone: user.phone
+            }
+        });
+
+    } catch (error) {
+        console.error("Register user error:", error);
+
+        return res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+};
+
+
 const getAllUsers = async (req, res) => {
     try {
         const { page, limit } = req.query;
@@ -17,7 +61,10 @@ const getAllUsers = async (req, res) => {
             });
         }
 
-        const users = await userService.getAllUsers();
+        const users = await userService.getAllUsers(
+           Number(page) || 1,
+           Number(limit) || 10
+         );
 
         return res.status(200).json({
             message: "Users fetched successfully",
@@ -72,12 +119,12 @@ const updateUser = async (req,res) => {
 
         if(!user){
             return res.status(404).json({
-                message:"user not found "
+                message:"User not found "
             });
         }
         
         return res.status(200).json({
-            message:"user update successfully",
+            message:"User updated successfully",
             data:user
         })
     } catch(error){
@@ -98,12 +145,12 @@ const deleteUser = async (req,res) => {
 
         if(!user){
             return res.status(404).json({
-                message:"user not found"
+                message:"User not found"
             })
         }
 
         return res.status(200).json({
-            message:"User delete successfully",
+            message:"User deleted successfully",
             data: user
         })
     }catch(error){
@@ -115,9 +162,64 @@ const deleteUser = async (req,res) => {
     }
 }
 
+const blockUser = async (req,res) => {
+    try{
+
+        const {userId} = req.params;
+
+        const user = await userService.blockUser(userId);
+
+        if(!user){
+            return res.status(404).json({
+                message:"User not found"
+            })
+        }
+
+        return res.status(200).json({
+            message:"User blocked successfully",
+            data:user
+        });
+    }catch(error){
+        console.error("block user error:",error);
+
+        return res.status(500).json({
+            message:"Internal server error"
+        });
+    }
+}
+
+const unblockUser = async (req,res) => {
+    try{
+
+        const {userId} = req.params;
+
+        const user = await userService.unblockUser(userId);
+        
+        if(!user){
+            return res.status(404).json({
+                message:"User not found"
+            })
+        }
+
+        return res.status(200).json({
+            message:"User unblocked successfully",
+            data:user
+        });
+    }catch(error){
+        console.error("Unblock user error:",error);
+
+        return res.status(500).json({
+            message:"Internal server error"
+        });
+    }
+}
+
 module.exports = {
+    registerUser,
     getAllUsers,
     getUserById,
     updateUser,
-    deleteUser
+    deleteUser,
+    blockUser,
+    unblockUser
 };

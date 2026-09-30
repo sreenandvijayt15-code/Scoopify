@@ -15,25 +15,24 @@ const loginAdmin = async (email, password) => {
     );
 
     if (!isPasswordValid) {
-    return null;
-}
-
-const token = jwt.sign(
-    {
-        id: admin._id,
-        email: admin.email
-    },
-    process.env.JWT_SECRET,
-    {
-        expiresIn: process.env.JWT_EXPIRES_IN || "1d"
+        return null;
     }
-);
 
-return {
-    admin,
-    token
-};
+    const token = jwt.sign(
+        {
+            id: admin._id,
+            email: admin.email
+        },
+        process.env.JWT_SECRET,
+        {
+            expiresIn: process.env.JWT_EXPIRES_IN || "1d"
+        }
+    );
 
+    return {
+        admin,
+        token
+    };
 };
 
 module.exports = {
