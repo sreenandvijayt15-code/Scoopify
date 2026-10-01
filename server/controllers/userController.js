@@ -47,7 +47,7 @@ const registerUser = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
     try {
-        const { page, limit } = req.query;
+        const { page, limit,search } = req.query;
 
         if (page !== undefined && (isNaN(page) || Number(page) < 1)) {
             return res.status(400).json({
@@ -63,7 +63,8 @@ const getAllUsers = async (req, res) => {
 
         const users = await userService.getAllUsers(
            Number(page) || 1,
-           Number(limit) || 10
+           Number(limit) || 10,
+           search || ""
          );
 
         return res.status(200).json({

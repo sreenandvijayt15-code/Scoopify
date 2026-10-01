@@ -1,0 +1,301 @@
+.home {
+    background-color: #fff8f5;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+
+    padding: 70px 55px 90px;
+
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+    flex: 1;
+    max-width: 650px;
+}
+
+
+.hero-badge {
+    display: inline-block;
+
+    background-color: #ffe4dc;
+    color: #e52f55;
+
+    padding: 9px 16px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 28px;
+}
+
+
+.hero h1 {
+    font-size: 52px;
+    line-height: 1.1;
+
+    margin: 0 0 25px;
+
+    color: #281b18;
+}
+
+
+.hero h1 span {
+    color: #df3154;
+}
+
+
+.hero-description {
+    font-size: 18px;
+    line-height: 1.7;
+
+    color: #735f59;
+
+    max-width: 620px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.hero-buttons {
+    display: flex;
+    gap: 18px;
+
+    margin-bottom: 40px;
+}
+
+
+.primary-btn,
+.secondary-btn {
+    border: none;
+
+    padding: 15px 28px;
+
+    border-radius: 30px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.primary-btn {
+    background-color: #e43257;
+    color: white;
+
+    box-shadow: 0 6px 15px rgba(228, 50, 87, 0.25);
+}
+
+
+.secondary-btn {
+    background-color: #fff0eb;
+    color: #33221e;
+}
+
+
+/* =========================
+   HERO FEATURES
+========================= */
+
+.hero-features {
+    display: flex;
+    gap: 28px;
+
+    color: #735f59;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image-container {
+    flex: 1;
+
+    position: relative;
+
+    max-width: 650px;
+}
+
+
+.hero-image {
+    width: 100%;
+    height: 485px;
+
+    object-fit: cover;
+
+    border-radius: 28px;
+
+    display: block;
+
+    box-shadow: 0 20px 45px rgba(70, 40, 30, 0.12);
+}
+
+
+/* =========================
+   SWEET PICK CARD
+========================= */
+
+.sweet-pick-card {
+    position: absolute;
+
+    left: -20px;
+    bottom: 30px;
+
+    width: 350px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 14px 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 14px;
+
+    box-shadow: 0 12px 30px rgba(60, 30, 20, 0.15);
+}
+
+
+.sweet-pick-image img {
+    width: 65px;
+    height: 65px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+}
+
+
+.sweet-pick-info {
+    flex: 1;
+     min-width: 0;
+}
+
+
+.sweet-pick-card small {
+    color: #e43257;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    width: 95px;
+}
+
+.sweet-pick-card h3 {
+    font-size: 15px;
+
+    margin: 0;
+
+    color: #2b1c18;
+
+    line-height: 1.3;
+
+    width: 100px;
+}
+
+.sweet-pick-card p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #765f59;
+
+    white-space: nowrap;
+}
+
+.sweet-pick-card button {
+    border: none;
+
+    background-color: #e43257;
+    color: white;
+
+    padding: 9px 15px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+
+        padding: 50px 25px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero-image-container {
+        width: 100%;
+        max-width: 650px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero-features {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .sweet-pick-card {
+        left: 10px;
+        right: 10px;
+        width: auto;
+    }
+
+}

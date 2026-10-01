@@ -23,10 +23,19 @@ const registerUser = async (userData) => {
 
 };
 
-const getAllUsers = async (page = 1, limit = 10) => {
+const getAllUsers = async (page = 1, limit = 10, search = "") => {
     const skip = (page - 1) * limit;
 
-    const users = await User.find()
+    const filter = {};
+
+    if (search) {
+        filter.$or = [
+            { name: { $regex: search, $options: "i" } },
+            { email: { $regex: search, $options: "i" } }
+        ];
+    }
+
+    const users = await User.find(filter)
         .sort({ createdAt: -1 })
         .skip(skip)
         .limit(limit);
