@@ -8,7 +8,7 @@ function Home(){
                 <div className="hero-content">
 
                     <div className="hero-badge">
-                        ← FRESHLY MADE • SWEETLY DELIVERED
+                         FRESHLY MADE • SWEETLY DELIVERED
                     </div>
 
                     <h1>Discover your <span>Sweet Side</span>
