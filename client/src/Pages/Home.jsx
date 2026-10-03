@@ -1,4 +1,6 @@
 import "../Home.css";
+import "../Components/CategorySection.css";
+import CategorySection from "../Components/CategorySection";
 
 function Home(){
     return(
@@ -82,6 +84,7 @@ function Home(){
                 </div>
 
             </section>
+            <CategorySection />
 
         </div>
     );
