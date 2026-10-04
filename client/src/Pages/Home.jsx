@@ -1,6 +1,13 @@
 import "../Home.css";
 import "../Components/CategorySection.css";
 import CategorySection from "../Components/CategorySection";
+import BestSellers from "../Components/BestSellers";
+import OfferBanner from "../Components/OfferBanner";
+import PromiseSection from "../Components/PromiseSection";
+import ExperienceSection from "../Components/ExperienceSection";
+import TestimonialsSection from "../Components/TestimonialsSection";
+import CTASection from "../Components/CTASection";
+import Footer from "../Components/Footer";
 
 function Home(){
     return(
@@ -85,6 +92,13 @@ function Home(){
 
             </section>
             <CategorySection />
+            <BestSellers />
+            <OfferBanner />
+            <PromiseSection />
+            <ExperienceSection />
+            <TestimonialsSection />
+            <CTASection />
+            <Footer />
 
         </div>
     );

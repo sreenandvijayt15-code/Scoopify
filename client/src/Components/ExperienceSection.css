@@ -1,0 +1,268 @@
+.experience-section {
+  width: 100%;
+  padding: 100px 55px;
+  background: #fff9f6;
+
+  display: flex;
+  align-items: center;
+  gap: 58px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   LEFT IMAGE
+========================= */
+
+.experience-image-wrapper {
+  width: 52%;
+  position: relative;
+}
+
+.experience-image {
+  width: 100%;
+  height: 520px;
+
+  object-fit: cover;
+  display: block;
+
+  border-radius: 28px;
+}
+
+
+/* =========================
+   BADGE
+========================= */
+
+.experience-badge {
+  position: absolute;
+
+  right: 30px;
+  bottom: -25px;
+
+  background: #ffffff;
+
+  padding: 18px 25px;
+
+  border-radius: 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.badge-icon {
+  width: 48px;
+  height: 48px;
+
+  background: #e93255;
+  color: white;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+}
+
+.experience-badge strong {
+  display: block;
+
+  font-size: 18px;
+  color: #251716;
+  margin-bottom: 3px;
+}
+
+.experience-badge span {
+  display: block;
+
+  font-size: 14px;
+  color: #806b64;
+}
+
+
+/* =========================
+   RIGHT CONTENT
+========================= */
+
+.experience-content {
+  width: 48%;
+}
+
+.experience-label {
+  display: inline-block;
+
+  color: #e93255;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 25px;
+}
+
+.experience-content h2 {
+  margin: 0 0 28px;
+
+  color: #251716;
+
+  font-size: 38px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.experience-description {
+  margin: 0 0 35px;
+
+  color: #806b64;
+
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+
+/* =========================
+   POINTS
+========================= */
+
+.experience-points {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.experience-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.point-check {
+  flex-shrink: 0;
+
+  width: 30px;
+  height: 30px;
+
+  background: #ffe1df;
+  color: #e93255;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.experience-point h3 {
+  margin: 0 0 4px;
+
+  color: #251716;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.experience-point p {
+  margin: 0;
+
+  color: #806b64;
+
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.experience-button {
+  margin-top: 32px;
+
+  padding: 15px 28px;
+
+  border: none;
+  border-radius: 30px;
+
+  background: #e93255;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.experience-button span {
+  margin-left: 8px;
+  font-size: 20px;
+}
+
+.experience-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(233, 50, 85, 0.25);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .experience-section {
+    flex-direction: column;
+    padding: 70px 30px;
+  }
+
+  .experience-image-wrapper,
+  .experience-content {
+    width: 100%;
+  }
+
+  .experience-image {
+    height: 450px;
+  }
+
+  .experience-content h2 {
+    font-size: 32px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .experience-section {
+    padding: 50px 20px;
+  }
+
+  .experience-image {
+    height: 350px;
+    border-radius: 20px;
+  }
+
+  .experience-badge {
+    right: 15px;
+    bottom: -20px;
+    padding: 12px 15px;
+  }
+
+  .experience-content h2 {
+    font-size: 28px;
+  }
+
+  .experience-description {
+    font-size: 16px;
+  }
+}

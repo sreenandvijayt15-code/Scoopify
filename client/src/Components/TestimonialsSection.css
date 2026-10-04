@@ -1,0 +1,216 @@
+/* =========================
+   TESTIMONIAL SECTION
+========================= */
+
+.testimonials-section {
+  width: 100%;
+  padding: 105px 42px 120px;
+  background: #fff9f6;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 68px;
+}
+
+.testimonials-label {
+  display: block;
+
+  color: #e93255;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 14px;
+}
+
+.testimonials-header h2 {
+  margin: 0 0 12px;
+
+  color: #251716;
+
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.testimonials-header p {
+  margin: 0;
+
+  color: #806b64;
+
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+
+/* =========================
+   TESTIMONIAL CARDS
+========================= */
+
+.testimonials-container {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 38px;
+
+  width: 100%;
+  max-width: 1455px;
+
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  min-height: 290px;
+
+  padding: 30px;
+
+  background: #ffffff;
+
+  border-radius: 28px;
+
+  box-sizing: border-box;
+
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================
+   RATING
+========================= */
+
+.testimonial-rating {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  color: #e92f55;
+}
+
+.verified-icon {
+  color: #e92f55;
+}
+
+
+/* =========================
+   REVIEW
+========================= */
+
+.testimonial-review {
+  margin: 0;
+
+  color: #352624;
+
+  font-size: 17px;
+
+  line-height: 1.65;
+
+  flex: 1;
+}
+
+
+/* =========================
+   CUSTOMER INFO
+========================= */
+
+.testimonial-footer {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-top: 28px;
+}
+
+.testimonial-footer h3 {
+  margin: 0 0 4px;
+
+  color: #251716;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.testimonial-footer p {
+  margin: 0;
+
+  color: #806b64;
+
+  font-size: 15px;
+}
+
+
+/* =========================
+   VERIFIED BADGE
+========================= */
+
+.verified-badge {
+  width: 24px;
+  height: 24px;
+
+  color: #e93255;
+
+  font-size: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+  .testimonials-container {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+  }
+
+  .testimonial-card {
+    min-height: 250px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .testimonials-section {
+    padding: 70px 20px 80px;
+  }
+
+  .testimonials-header {
+    margin-bottom: 45px;
+  }
+
+  .testimonials-header h2 {
+    font-size: 29px;
+  }
+
+  .testimonials-header p {
+    font-size: 15px;
+  }
+
+  .testimonial-card {
+    padding: 25px;
+    border-radius: 22px;
+  }
+
+  .testimonial-review {
+    font-size: 16px;
+  }
+}
