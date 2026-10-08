@@ -1,9 +1,35 @@
 const Category = require("../models/categoryModel");
 
-const getAllCategories = async () => {
-    const categories = await Category.find().sort({ createdAt: -1 });
+const getAllCategories = async (search = "", page = 1, limit = 10) => {
+    const skip = (page - 1) * limit;
 
-    return categories;
+    const query = {
+        $or: [
+            { isDeleted: false },
+            { isDeleted: { $exists: false } }
+        ]
+    };
+
+    if (search) {
+        query.name = {
+            $regex: search,
+            $options: "i"
+        };
+    }
+
+    const categories = await Category.find(query)
+        .sort({ createdAt: -1 })
+        .skip(skip)
+        .limit(limit);
+
+    const totalCategories = await Category.countDocuments(query);
+
+    return {
+        categories,
+        totalCategories,
+        currentPage: page,
+        totalPages: Math.ceil(totalCategories / limit)
+    };
 };
 
 const createCategory = async (categoryData) => {
@@ -19,10 +45,14 @@ const getCategoryById = async (categoryId) => {
 }
 
 const deleteCategory = async (categoryId) => {
-    const category = await Category.findByIdAndDelete(categoryId);
+    const category = await Category.findByIdAndUpdate(
+        categoryId,
+        { isDeleted: true },
+        { new: true }
+    );
 
     return category;
-}
+};
 
 const updateCategory = async (categoryId, categoryData) => {
      const category = await Category.findByIdAndUpdate(

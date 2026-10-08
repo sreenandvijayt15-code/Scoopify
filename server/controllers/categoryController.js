@@ -3,9 +3,15 @@ const categoryService = require("../services/categoryService");
 
 const getAllCategories = async (req, res) => {
     try {
-        const categories = await categoryService.getAllCategories();
+        const { search = "", page = 1, limit = 10 } = req.query;
 
-        if (categories.length === 0) {
+        const result = await categoryService.getAllCategories(
+            search,
+            Number(page),
+            Number(limit)
+        );
+
+        if (result.categories.length === 0) {
             return res.status(404).json({
                 message: "No categories found"
             });
@@ -14,7 +20,10 @@ const getAllCategories = async (req, res) => {
         return res.status(200).json({
             message: "Categories retrieved successfully",
             data: {
-                categories
+                categories: result.categories,
+                totalCategories: result.totalCategories,
+                currentPage: result.currentPage,
+                totalPages: result.totalPages
             }
         });
 
