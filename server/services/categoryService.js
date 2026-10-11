@@ -39,11 +39,13 @@ const createCategory = async (categoryData) => {
 };
 
 const getCategoryById = async (categoryId) => {
-     const category = await Category.findById(categoryId);
+    const category = await Category.findOne({
+        _id: categoryId,
+        isDeleted: false
+    });
 
-     return category;
-}
-
+    return category;
+};
 const deleteCategory = async (categoryId) => {
     const category = await Category.findByIdAndUpdate(
         categoryId,
